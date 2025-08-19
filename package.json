@@ -7,10 +7,29 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "build": "echo \"(بعداً: تبدیل TypeScript به JavaScript)\"",
-    "test": "echo \"(بعداً: اجرای تست‌ها)\""
+    "test": "echo \"(بعداً: اجرای تست‌ها)\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format:check": "prettier -c .",
+    "format:write": "prettier -w .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "eslint --fix",
+      "prettier -w"
+    ]
   },
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2"
   }
 }
