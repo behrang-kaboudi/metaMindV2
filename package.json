@@ -1,0 +1,16 @@
+{
+  "name": "metamind-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "echo \"(بعداً: تبدیل TypeScript به JavaScript)\"",
+    "test": "echo \"(بعداً: اجرای تست‌ها)\""
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
