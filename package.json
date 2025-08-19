@@ -10,15 +10,19 @@
     "test": "vitest run",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "format": "prettier -w .",
     "format:check": "prettier -c .",
     "format:write": "prettier -w .",
     "prepare": "husky",
     "test:watch": "vitest"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
-      "eslint --fix",
-      "prettier -w"
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --max-warnings=0 --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,mdx,yml,yaml,css,scss,html}": [
+      "prettier --write"
     ]
   },
   "dependencies": {
