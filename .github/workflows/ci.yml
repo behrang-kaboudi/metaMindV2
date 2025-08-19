@@ -1,23 +1,28 @@
 name: CI
 
 on:
-  pull_request:
   push:
+  pull_request:
 
 jobs:
   build-and-verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      # نصب پکیج‌ها (بدون نیاز به package-lock)
       - name: Install
-        run: npm install
+        run: npm ci || npm install
 
-      # یک بررسی خیلی ساده تا CI سبز شود
+      - name: Lint
+        run: npm run lint
+
+      - name: Prettier check
+        run: npm run format:check
+
+      # keep a simple final step so the job has a clear success output
       - name: Verify
         run: node -e "console.log('CI OK')"
