@@ -23,6 +23,9 @@ jobs:
       - name: Prettier check
         run: npm run format:check
 
+      - name: Test
+        run: npm test
+
       # keep a simple final step so the job has a clear success output
       - name: Verify
         run: node -e "console.log('CI OK')"
